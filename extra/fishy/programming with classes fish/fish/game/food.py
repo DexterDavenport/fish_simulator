@@ -9,7 +9,7 @@ class Food(Actor):
         self.set_height(constants.FOOD_H)
         self.set_width(constants.FOOD_W)
         self.set_image(constants.IMAGE_FOOD)
-        self._velocity = Point(0,-2)
+        self._velocity = Point(0,2)
 
     def set_position(self, position):
         self._position = position

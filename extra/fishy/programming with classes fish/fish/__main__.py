@@ -15,53 +15,44 @@ from game.move_actors_action import MoveActorsAction
 from game.handle_off_screen_action import Handle_Off_Screen_Action
 from game.handle_collisions_action import HandleCollisionsAction
 from game.score import Score
-from game.ocean import Ocean
-from game.shark import Shark
 from game.fish import Fish
+from game.food import Food
 
 def main():
     x = 1
     y = 20
     cast = {}
 
-    # cast["ocean"] = []
-    # oceans = []
-
-    # ocean = Ocean()
-    # ocean.set_position(Point(0, 0))
-    # oceans.append(ocean)
-    # cast["ocean"] = oceans
-
     cast["score"] = []
-    x1 = 600
+    x1 = 735
     scores = []
     for round in range(0, 3):
 
         score = Score()
         score.set_position(Point(x1, 550))
-        x1 += 65
+        x1 -= 65
         scores.append(score)
         cast["score"] = scores
 
-    cast["shark"] = []
-    sharks = []
+    cast["food"] = []
+    foods = []
 
-    x = 800
+    # y = 600
     s = -2
-    for shark in range(0,3):
-        shark = Shark()
-        y = random.randint(0, 580)
-        x -= 20
-        s = random.randint(-10,-1)
-        shark.set_position(Point(x, y))
-        shark._velocity = Point(s,0)
-        sharks.append(shark)
-        cast["shark"] = sharks
+    for food in range(0,1):
+        food = Food()
+        # y -= 20
+        # x = random.randint(0, 800)
+        s = random.randint(2,6)
+        food.set_position(Point(20, 20))
+        food._velocity = Point(0,s)
+        foods.append(food)
+        cast["food"] = foods
 
     cast["fish"] = []
     fishs = []
     fish = Fish()
-    fish.set_position(Point(345, 500))
+    fish.set_position(Point(325, 40))
     fishs.append(fish)
     cast["fish"] = fishs
 
@@ -83,7 +74,7 @@ def main():
 
     output_service.open_window("Fish Simulator")
     audio_service.start_audio()
-    # audio_service.play_sound(constants.SOUND_START)
+    audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
     director.start_game()
