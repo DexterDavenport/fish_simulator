@@ -17,17 +17,26 @@ from game.handle_collisions_action import HandleCollisionsAction
 from game.score import Score
 from game.fish import Fish
 from game.food import Food
+from game.ocean import Ocean
+from game.end import End
 
 def main():
-    x = 1
-    y = 20
+
     cast = {}
+
+    cast["ocean"] = []
+    oceans = []
+
+    ocean = Ocean()
+    ocean.set_position(Point(0, 0))
+    oceans.append(ocean)
+    cast["ocean"] = oceans
 
     cast["score"] = []
     x1 = 735
     scores = []
-    for round in range(0, 3):
-
+    for i in range(0, 3):
+        print(i)
         score = Score()
         score.set_position(Point(x1, 550))
         x1 -= 65
@@ -37,12 +46,9 @@ def main():
     cast["food"] = []
     foods = []
 
-    # y = 600
     s = -2
     for food in range(0,1):
         food = Food()
-        # y -= 20
-        # x = random.randint(0, 800)
         s = random.randint(2,6)
         food.set_position(Point(20, 20))
         food._velocity = Point(0,s)
@@ -55,6 +61,14 @@ def main():
     fish.set_position(Point(325, 40))
     fishs.append(fish)
     cast["fish"] = fishs
+
+    cast['end'] = []
+
+    ends = []
+    end = End()
+    end.set_position(Point(0, 0))
+    ends.append(end)
+    cast["end"] = ends
 
     script = {}
 
@@ -77,7 +91,7 @@ def main():
     audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
-    director.start_game()
+    director.start_game(cast)
 
     audio_service.stop_audio()
 

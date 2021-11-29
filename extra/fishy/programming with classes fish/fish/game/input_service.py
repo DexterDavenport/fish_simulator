@@ -41,7 +41,7 @@ class InputService:
             dy = -.75
         
         if self.is_down_pressed() or self.is_s_pressed():
-            dy = 1
+            dy = 2
 
         direction = Point(dx, dy)
         return direction

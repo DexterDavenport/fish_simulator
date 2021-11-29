@@ -5,30 +5,13 @@ import raylibpy
 from game import constants
 
 class Director:
-    """A code template for a person who directs the game. The responsibility of 
-    this class of objects is to control the sequence of play.
-    
-    Stereotype:
-        Controller
-
-    Attributes:
-        _cast (dictionary): The game actors {key: name, value: object}
-        _script (dictionary): The game actions {key: tag, value: object}
-    """
 
     def __init__(self, cast, script):
-        """The class constructor.
-        
-        Args:
-            cast (dict): The game actors {key: tag, value: list}.
-            script (dict): The game actions {key: tag, value: list}.
-        """
         self._cast = cast
         self._script = script
         self._keep_playing = True
         
-    def start_game(self):
-        """Starts the game loop to control the sequence of play."""
+    def start_game(self, cast):
         while self._keep_playing:
             self._cue_action("input")
             self._cue_action("update")
@@ -36,9 +19,15 @@ class Director:
 
             # TODO: Add some logic like the following to handle game over conditions
             if len(self._cast["score"]) == 0:
-                print('ending 1')
+                # print('ending 1')
                 # Game over
-                self._keep_playing = False
+                # self._keep_playing = False
+                ocean = cast["ocean"][0]
+                end = cast["end"][0]
+                
+                
+                end.set_image(constants.IMAGE_END)
+                ocean.set_image(constants.IMAGE_END)
 
             if raylibpy.window_should_close():
                 print('ending 2')

@@ -1,7 +1,7 @@
 from game.point import Point
-# from game import constants
 from game.action import Action
 from game.audio_service import AudioService
+from game.score import Score
 import random
 
 audio_service = AudioService()
@@ -27,19 +27,17 @@ class Handle_Off_Screen_Action(Action):
             y = fish.get_position().get_y()
             fish.set_position(Point(6, y))
 
-        if fish.get_position().get_x() >= 630:
+        if fish.get_position().get_x() >= 685:
             y = fish.get_position().get_y()
-            fish.set_position(Point(629, y))
+            fish.set_position(Point(684, y))
 
-        if fish.get_position().get_y() <= 5:
+        if fish.get_position().get_y() <= 2:
             x = fish.get_position().get_x()
-            fish.set_position(Point(x, 6))
+            fish.set_position(Point(x, 3))
 
         if fish.get_position().get_y() >= 551:
             fish.set_position(Point(345, 40))
+
             scores.pop(0)
 
-            
-
-        
 

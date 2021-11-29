@@ -8,13 +8,14 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_SHELL = os.path.join(os.getcwd(), "./fish/assets/shell_box.png")
+IMAGE_SHELL = os.path.join(os.getcwd(), "./fish/assets/chest.png")
 IMAGE_OCEAN = os.path.join(os.getcwd(), "./fish/assets/ocean.png")
+IMAGE_END = os.path.join(os.getcwd(), "./fish/assets/end_screen.png")
 IMAGE_FOOD = os.path.join(os.getcwd(), "./fish/assets/ball.png")
 
-IMAGE_SHARK = os.path.join(os.getcwd(), "./fish/assets/shark_box.png")
+IMAGE_SHARK = os.path.join(os.getcwd(), "./fish/assets/shark.png")
 
-IMAGE_FISH = os.path.join(os.getcwd(), "./fish/assets/fish_box.png")
+IMAGE_FISH = os.path.join(os.getcwd(), "./fish/assets/burton_fish.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./fish/assets/ball.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./fish/assets/start.wav")
@@ -51,8 +52,8 @@ SHARK_H = 100
 
 FISH_SPEED = 4
 
-FISH_WIDTH = 140
-FISH_HEIGHT = 60
+FISH_WIDTH = 104
+FISH_HEIGHT = 125
 
 FOOD_H = 20
 FOOD_W = 20
