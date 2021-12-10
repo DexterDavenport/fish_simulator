@@ -4,6 +4,7 @@ os.environ['RAYLIB_BIN_PATH'] = '.'
 from game.audio_service import AudioService
 import raylibpy
 from game import constants
+from game.point import Point
 
 audio_service = AudioService()
 
@@ -25,6 +26,15 @@ class Director:
                 audio_service.play_sound(constants.SOUND_OVER)
                 end = cast["end"][0]
                 end_1 =cast["end_1"][0]
+                food = cast["food"][0]
+                
+                fish = cast["fish"][0]
+                fish.set_height(0)
+                fish.set_width(0)
+                food.set_height(0)
+                food.set_width(0)
+                food._velocity = Point(0,0)
+
                 end.set_image(constants.IMAGE_END_OCEAN)
                 end_1.set_image(constants.IMAGE_DEAD)
 
